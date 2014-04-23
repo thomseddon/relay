@@ -12,9 +12,9 @@ Relay works by a combination of an application you run on your computer + an app
 
 ## Getting Started
 
-### Installation
+### Install
 
-First you need to download, compile and run the android application available here: https://github.com/thomseddon/relay-android (will be in the play store very soon)
+First you need to download, compile and run the android application available here: https://github.com/thomseddon/relay-android (I know I know, sorry....once stable it will be in the play store)
 
 Then, grab a copy of this project:
 
@@ -24,11 +24,13 @@ git clone https://github.com/thomseddon/relay.git
 
 ### Run
 
+Simply:
+
 ```
 npm start
 ```
 
-This will start the application on port 5283, you can check it out at http://127.0.0.1:5283 and assuming the android application is running on your device it should Just Work&trade;).
+This will start the application on port `5283`, you can check it out at http://127.0.0.1:5283 and assuming the android application is running on your device it should Just Work&trade;.
 
 ## Notes
  - It's very early days at the moment so things (mainly the android app) are a little fragile at the moment, there are a a load of [issues here](https://github.com/thomseddon/relay/issues?state=open) and [there](https://github.com/thomseddon/relay-android) around making this better, I'd love your help
