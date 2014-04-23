@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en" ng-app="relay">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Relay</title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+  <link rel="stylesheet" href="css/app.css"/>
+</head>
+<body>
+  <div id="wrapper">
+    <div id="sidebar" class="centre">
+      <a href="#/" class="brand">
+        <h2>Relay</h2>
+      </a>
+      <ul class="sections">
+        <li>
+          <a href="#/sms" ng-class="{active: location.path() == '/sms'}">
+            <span class="glyphicon glyphicon-envelope"></span> SMS
+          </a>
+        </li>
+      </ul>
+      <div class="credits">
+        <p>Built by <a href="https://twitter.com/ThomSeddon">@ThomSeddon</a></p>
+      </div>
+    </div>
+    <div id="main">
+        <div id="{{ location.path().substr(1) }}" class="content" ng-view></div>
+    </div>
+  </div>
+<!-- <ul class="menu">
+    <li><a href="#/view1">view1</a></li>
+    <li><a href="#/view2">view2</a></li>
+  </ul> -->
+
+  <script>
+  var allContacts = [{"number":"+447710930066","name":"Ian Leach","_id":2955},{"number":"+447815068845","name":"Hayley","_id":9727},{"number":"+447827316923","name":"Kat","_id":5693},{"number":"+447890847908","name":"Sam T","_id":10190},{"number":"01327304401","name":"Affordable Mobiles","_id":8817},{"number":"0161 436 4000","name":"Club Cars","_id":9185},{"number":"0161 917 3240","name":"Home","_id":9497},{"number":"0161 928 7171","name":"Eastern Green","_id":8660},{"number":"01617481040","name":"Wendy Rennison","_id":4701},{"number":"01618688208","name":"Wendy Rennison","_id":4700},{"number":"01619289507","name":"Nana","_id":8837},{"number":"01619733333","name":"Scotts","_id":8841},{"number":"0333 555 8800","name":"0800buster","_id":4046},{"number":"0438129766","name":"Bernard Mangelsdorf","_id":9010},{"number":"07447 492320","name":"Shaun Gibson","_id":2950},{"number":"07447492320","name":"Shaun","_id":8843},{"number":"07450240648","name":"Tade","_id":8849},{"number":"07508 009825","name":"Ash","_id":3376},{"number":"07525 492329","name":"Karen","_id":4330},{"number":"07552 583675","name":"Doug Ward","_id":2929},{"number":"07552583675","name":"Doug","_id":8821},{"number":"0756057911","name":"Bernard Mangelsdorf","_id":9009},{"number":"07565520428","name":"Lewis","_id":8829},{"number":"07704057219","name":"Wes","_id":8851},{"number":"07713 814054","name":"Kate Lacey","_id":9488},{"number":"07714748494","name":"Lee H","_id":8827},{"number":"07717 452939","name":"Jen","_id":8716},{"number":"07787 513310","name":"Philip Poole","_id":2940},{"number":"07787 513312","name":"Mum","_id":2938},{"number":"07787513310","name":"Philip","_id":8839},{"number":"07787513312","name":"Mun","_id":8835},{"number":"07808153655","name":"Stevo","_id":8847},{"number":"07815290130","name":"Simon Owen","_id":9258},{"number":"07815700207","name":"Jake Bennett","_id":9103},{"number":"07836721964","name":"Janet","_id":8823},{"number":"07838231103","name":"Solly","_id":8845},{"number":"07845517507","name":"Natasha Map Happy","_id":304},{"number":"07866 016868","name":"Arian Kalantari","_id":4100},{"number":"07872600130","name":"John L","_id":8825},{"number":"07900466103","name":"Liz R","_id":8831},{"number":"07912409494","name":"Jules","_id":4766},{"number":"07917 057021","name":"Shaun Gibson","_id":9144},{"number":"07939672748","name":"Mark","_id":8833},{"number":"07944 270908","name":"Dad","_id":2943},{"number":"07944270908","name":"Dad","_id":8819},{"number":"07951713807","name":"Wendy Rennison","_id":4702},{"number":"07973452132","name":"Abi","_id":8853},{"number":"07989 389666","name":"Tom Wild","_id":3016},{"number":"9546074999","name":"PhoneFusion","_id":4647}] ;
+    var allSMS =[
+  {
+    "body":"HI just off on a walk txt or call if you hear anything as emails not working on phone for some reason ;) here's hoping love you mum xxxx ",
+    "address":"+447787513312",
+    "_id":4456,
+    "date":1695590166,
+    "dateSent":1695586800,
+    "read":0,
+    "seen":1,
+    "threadId":13,
+    "type":1
+  },
+  {
+    "body":"I think I need a puppy xxx",
+    "address":"+447713814054",
+    "_id":4455,
+    "date":1693105191,
+    "dateSent":1693099800,
+    "read":1,
+    "seen":1,
+    "threadId":120,
+    "type":1
+  },
+  {
+    "body":"I think I need a puppy xxx",
+    "address":"+447713814054",
+    "_id":4454,
+    "date":1692983280,
+    "dateSent":1692975800,
+    "read":1,
+    "seen":1,
+    "threadId":120,
+    "type":1
+  },
+  {
+    "body":"Ok, just showering etc xxx",
+    "address":"+447713814054",
+    "_id":4453,
+    "date":1634929892,
+    "dateSent":1634928800,
+    "read":1,
+    "seen":1,
+    "threadId":120,
+    "type":1
+  },
+  {
+    "body":"Home xxx",
+    "address":"+447713814054",
+    "_id":4451,
+    "date":1630124473,
+    "dateSent":1630122800,
+    "read":1,
+    "seen":1,
+    "threadId":120,
+    "type":1
+  },
+  {
+    "body":"That's ok, just checking xxx",
+    "address":"+447713814054",
+    "_id":4450,
+    "date":1625694991,
+    "dateSent":1625691800,
+    "read":1,
+    "seen":1,
+    "threadId":120,
+    "type":1
+  },
+  {
+    "body":"You back? Xxx",
+    "address":"+447713814054",
+    "_id":4448,
+    "date":1624348908,
+    "dateSent":1624345800,
+    "read":1,
+    "seen":1,
+    "threadId":120,
+    "type":1
+  },
+  {
+    "body":"Have fun xxx",
+    "address":"+447713814054",
+    "_id":4447,
+    "date":1617865656,
+    "dateSent":1617864800,
+    "read":1,
+    "seen":1,
+    "threadId":120,
+    "type":1
+  },
+  {
+    "body":"Ok xxx",
+    "address":"+447713814054",
+    "_id":4446,
+    "date":1617857803,
+    "dateSent":1617857800,
+    "read":1,
+    "seen":1,
+    "threadId":120,
+    "type":1
+  },
+  {
+    "body":"Ok just finishing a drink with Tim. You want to come across here and meet us here?",
+    "address":"+447447492320",
+    "_id":4443,
+    "date":1380545114,
+    "dateSent":1380541800,
+    "read":1,
+    "seen":1,
+    "threadId":31,
+    "type":1
+  },
+  {
+    "body":"Hyper no good? Just across the road at Thistle hotel. You getting food at Kro?",
+    "address":"+447447492320",
+    "_id":4441,
+    "date":1380067558,
+    "dateSent":1380064800,
+    "read":1,
+    "seen":1,
+    "threadId":31,
+    "type":1
+  },
+  {
+    "body":"About 25. Just waiting on Tim.",
+    "address":"+447447492320",
+    "_id":4439,
+    "date":1379352226,
+    "dateSent":1379349800,
+    "read":1,
+    "seen":1,
+    "threadId":31,
+    "type":1
+  },
+  {
+    "body":"Anyone there yet? Want to just meet at HyperIsland?",
+    "address":"+447447492320",
+    "_id":4437,
+    "date":1378858379,
+    "dateSent":1378855800,
+    "read":1,
+    "seen":1,
+    "threadId":31,
+    "type":1
+  },
+  {
+    "body":"Try Crown next door. Think the Melbourne lot in there?",
+    "address":"+447447492320",
+    "_id":4434,
+    "date":1376879922,
+    "dateSent":1376876800,
+    "read":1,
+    "seen":1,
+    "threadId":31,
+    "type":1
+  },
+  {
+    "body":"Cool",
+    "address":"+447552583675",
+    "_id":4432,
+    "date":1374633707,
+    "dateSent":1374630800,
+    "read":1,
+    "seen":1,
+    "threadId":20,
+    "type":1
+  },
+  {
+    "body":"That ok?",
+    "address":"+447552583675",
+    "_id":4430,
+    "date":1374532466,
+    "dateSent":1374528800,
+    "read":1,
+    "seen":1,
+    "threadId":20,
+    "type":1
+  },
+  {
+    "body":"I'm with Franziska at the malmaison and ideally wouldn't leave her given the conversation ",
+    "address":"+447552583675",
+    "_id":4429,
+    "date":1374423050,
+    "dateSent":1374419800,
+    "read":1,
+    "seen":1,
+    "threadId":20,
+    "type":1
+  },
+  {
+    "body":"I do, sorry to ask but could you meet me?",
+    "address":"+447552583675",
+    "_id":4427,
+    "date":1374384966,
+    "dateSent":1374381800,
+    "read":1,
+    "seen":1,
+    "threadId":20,
+    "type":1
+  },
+  {
+    "body":"You still in the office? Could do with getting in at 6:30 if you can hang on for me :)",
+    "address":"+447447492320",
+    "_id":4424,
+    "date":1372308760,
+    "dateSent":1372300800,
+    "read":1,
+    "seen":1,
+    "threadId":31,
+    "type":1
+  }
+];
+  </script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/directives.js"></script>
+</body>
+</html>

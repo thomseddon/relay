@@ -1,0 +1,21 @@
+
+<div id="contacts">
+  <ul class="block">
+    <li ng-repeat="thread in threads" ng-click="selectThread(thread)">
+      <h4>{{ thread.number | numberName }}</h4>
+    </li>
+  </ul>
+</div>
+
+<div id="conversation">
+  <ul class="block">
+    <li ng-repeat="sms in thread.sms | orderBy:'date'" ng-class="sms.type | smsType" date="{{ sms.date }}">
+      <div class="content">
+        <div class="body">{{ sms.body }}</div>
+        <div class="date">{{ sms.date * 1000 | date:'H:mm, EEE d MMM yyyy' }}</div>
+      </div>
+    </li>
+  </ul>
+  <textarea placeholder="Enter text here..." ng-model="text"></textarea>
+  <div class="send centre" ng-click="sendText(text)">Send</div>
+</div>

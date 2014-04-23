@@ -1,0 +1,164 @@
+
+// Shared
+
+.centre {
+  text-align: center;
+}
+
+
+a {
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+ul.block {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+// Structure
+
+html, body {
+  height: 100%;
+}
+
+#wrapper {
+  display: flex;
+  height: 100%;
+}
+
+#sidebar {
+  flex: 0 0 160px;
+  background-color: #384042;
+  color: #677679;
+
+  .brand {
+    display: block;
+    width: 100%;
+    background-color: #20a8d8;
+    color: #fff;
+
+    h2 {
+      margin: 0 0 20px;
+      padding: 10px 0 12px;
+    }
+  }
+
+  .sections {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+
+    .glyphicon {
+      font-size: 16px;
+      margin: 0 12px 3px 0;
+      vertical-align: middle;
+    }
+    a {
+      display: block;
+      width: 100%;
+      padding: 10px 0;
+      color: #677679;
+
+      &:hover, &.active {
+        background-color: #2c3334;
+        color: #fff;
+      }
+    }
+  }
+
+  .credits {
+    margin-top: 20px;
+    padding: 6px;
+    color: #888;
+  }
+}
+
+#main {
+  flex: 1;
+  height: 100%;
+
+  .content {
+    display: flex;
+    height: 100%;
+  }
+}
+
+// SMS
+#sms {
+
+  #contacts {
+    flex: 0 0 240px;
+    border-right: 1px solid #AAA;
+    height: 100%;
+
+    ul {
+      max-height: 100%;
+      overflow-y: scroll;
+    }
+    li {
+      width: 100%;
+      padding: 16px 10px 8px;
+      border-bottom: 1px solid #D8D8D8;
+    }
+    h4 {
+      margin-top: 0;
+    }
+  }
+  #conversation {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    max-width: 575px;
+
+    ul {
+      flex: 1 100%;
+      max-height: 100%;
+      overflow-y: scroll;
+    }
+    li {
+      flex: 1;
+      margin-bottom: 5px;
+      float: left;
+      width: 100%;
+
+      .content {
+        background: #F3F2F2;
+        padding: 10px;
+        color: #4B4848;
+        max-width: 80%;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+      &.inbox .content {
+        float: left;
+      }
+      &.sent .content {
+        float: right;
+      }
+      .date {
+        color: #9B9B9B;
+      }
+    }
+    textarea {
+      flex: 0 0 75px;
+      border-top: 1px solid #AAA;
+      border-bottom: 1px solid #AAA;
+      border-right: none;
+      border-left: none;
+    }
+    .send {
+      flex: 0 0 25px;
+      background: #fff;
+    }
+  }
+}
+
